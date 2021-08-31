@@ -8,7 +8,7 @@ class RailsSettingsMigration < MIGRATION_BASE_CLASS
   def self.up
     create_table :settings do |t|
       t.string     :var,    :null => false
-      t.text       :value
+      t.json       :value, default: {}
       t.references :target, :null => false, :polymorphic => true
       t.timestamps :null => true
     end
